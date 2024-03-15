@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import { useState } from "react";
 import FirstPage from "./QuestionPage1";
 import SecondPage from "./QuestionPage2";
-import FamBGImg from "../../../assets/images/Family/fam.png";
+
 import Modal from "../../../components/Modal";
 import SuccessModal from "../../../components/Success";
-import BGImage from "../../../assets/images/Family/pattern1.png";
+
 import HeaderImg from "../../../assets/images/Family/FAMILY.png";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
@@ -79,7 +79,7 @@ export default function FamilyForm() {
           </div>
 
           <div className="flex justify-center items-center h-full">
-            <span className="text-5xl">Family</span>
+            <span className="text-8xl">Family</span>
           </div>
         </div>
       </div>
