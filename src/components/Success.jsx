@@ -52,6 +52,9 @@ const SuccessModal = ({quiz}) => {
                 width: "150px",
                 marginRight: "10px",
                 fontSize: "20px",
+                borderStyle: "solid",
+                borderRadius: "12px",
+                borderColor: "black"
               }}
             >
               Redo
@@ -74,6 +77,9 @@ const SuccessModal = ({quiz}) => {
                 marginRight: "10px",
                 width: "150px",
                 fontSize: "20px",
+                borderStyle: "solid",
+                borderRadius: "12px",
+                borderColor: "black"
               }}
             >
               Go Home
