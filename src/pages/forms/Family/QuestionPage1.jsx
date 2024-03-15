@@ -4,17 +4,21 @@ import { useForm } from "react-hook-form";
 import QuestionImageCard from "../QuestionCards/QuestionImageCard";
 import { useState } from "react";
 import Q1Image1 from "../../../assets/images/Family/Q1/1.png";
+import Image from '../../../assets/images/selectionPage/aaa.png'
 
 const FirstPage = ({ formData, setFormData }) => {
   const { register } = useForm();
-  const color = "bg-gradient-to-br from-sky-200 to-sky-200";
-  const borderColor = "border-sky-300"
+  // const color = "bg-gradient-to-br from-sky-300 to-sky-300";
+  const color = "bg-white";
+  const borderColor = "border-inherit"
 
   const question1 = "01. What do you think about your family?";
   const answerForQuestion1 = [
     { image: Q1Image1, text: "Positive" },
     { image: Q1Image1, text: "Neutral" },
-    { image: Q1Image1, text: "Negative" },
+    { image: Image, text: "Negative" },
+    { image: Q1Image1, text: "depressed" },
+    { image: Q1Image1, text: "suicidal" },
   ];
   const question2 = "02. Who do you like best in your family?";
   const question3 = "03. Does anyone make you frightend within your family?";
@@ -43,20 +47,20 @@ const FirstPage = ({ formData, setFormData }) => {
     <div>
       <form>
         {/* Question 01 */}
-        <div className="mb-12 ">
+        <div className="mb-12">
           <QuestionImageCard
             question={question1}
             answers={answerForQuestion1}
             selectedAnswer={selectedAnswer}
             onAnswerSelect={(answerText) => handleAnswerSelect("1", answerText)}
             setFormData={setFormData}
-            color={color}
+            color={"bg-white py-12 font-short-stack"}
             borderColor={borderColor}
           />
         </div>
 
         {/* Question 02 */}
-        <div className={` ${color} bg-amber-200 p-6 rounded-3xl shadow-md mb-12 border-4 ${borderColor}`}>
+        <div className={`bg-white font-short-stack p-6 py-10 rounded-3xl shadow-md mb-12  ${borderColor}`}>
           <div className="mb-4">
             <label className="block text-xl font-semibold mb-2">
               {question2}
@@ -73,7 +77,7 @@ const FirstPage = ({ formData, setFormData }) => {
         </div>
 
         {/* Question 03 */}
-        <div className={` ${color} p-6 rounded-3xl shadow-md mb-12 border-4 ${borderColor}` }>
+        <div className={` bg-white font-short-stack py-10 p-6 rounded-3xl shadow-md mb-12  ${borderColor}` }>
           <div className="mb-4">
             <label className="block text-xl font-semibold mb-2">
               {question3}
@@ -90,7 +94,7 @@ const FirstPage = ({ formData, setFormData }) => {
         </div>
 
         {/* Question 04 */}
-        <div className={` ${color} p-6 rounded-3xl shadow-md mb-12 border-4 ${borderColor}`}>
+        <div className={` bg-white font-short-stack py-10 p-6 rounded-3xl shadow-md mb-12  ${borderColor}`}>
           <div className="mb-4">
             <label className="block text-xl font-semibold mb-2">
               {question4}
@@ -107,7 +111,7 @@ const FirstPage = ({ formData, setFormData }) => {
         </div>
 
         {/* Question 05 */}
-        <div className={` ${color} p-6 rounded-3xl shadow-md mb-2 border-4 ${borderColor}`}>
+        <div className={`py-10 p-6 font-short-stack rounded-3xl shadow-md mb-2 bg-white ${borderColor}`}>
           <div className="mb-4">
             <label className="block text-xl font-semibold mb-2">
               {question5}

@@ -24,14 +24,14 @@ const SecondPage = ({ formData, setFormData }) => {
     <div>
       <form>
         {/* Question 06 */}
-        <div className={` ${color} p-6 rounded-3xl shadow-md mb-12 border-4 ${borderColor}` }>
+        <div className={`bg-white py-10 font-short-stack p-6 rounded-3xl shadow-md mb-12 ${borderColor}` }>
           <div className="mb-4">
             <label className="block text-xl font-semibold mb-2">
               {question6}
             </label>
             <input
               type="text"
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-400"
+              className="w-full  px-3 py-2 border rounded-md focus:outline-none focus:border-blue-400"
               placeholder="Type your answer here..."
               value={formData.question6 || ""}
               {...register("question6")}
@@ -41,7 +41,7 @@ const SecondPage = ({ formData, setFormData }) => {
         </div>
 
         {/* Question 07 */}
-        <div className={` ${color} p-6 rounded-3xl shadow-md mb-12 border-4 ${borderColor}` }>
+        <div className={` bg-white py-10 font-short-stack p-6 rounded-3xl shadow-md mb-12  ${borderColor}` }>
           <div className="mb-4">
             <label className="block text-xl font-semibold mb-2">
               {question7}
@@ -74,7 +74,7 @@ const SecondPage = ({ formData, setFormData }) => {
         </div>
 
         {/* Question 08 */}
-        <div className={` ${color} p-6 rounded-3xl shadow-md mb-12 border-4 ${borderColor}` }>
+        <div className={`bg-white py-10 p-6 font-short-stack rounded-3xl shadow-md mb-12 ${borderColor}` }>
           <div className="mb-4">
             <label className="block text-xl font-semibold mb-2">
               {question8}
@@ -116,9 +116,6 @@ const SecondPage = ({ formData, setFormData }) => {
            />
            }
         </div>
-
- 
-        
       </form>
     </div>
   );

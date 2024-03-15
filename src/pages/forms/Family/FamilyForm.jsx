@@ -6,13 +6,17 @@ import SecondPage from "./QuestionPage2";
 import FamBGImg from "../../../assets/images/Family/fam.png";
 import Modal from "../../../components/Modal";
 import SuccessModal from "../../../components/Success";
-import BGImage from '../../../assets/images/Family/pattern1.png'
-import HeaderImg from '../../../assets/images/Family/famm.png'
+import BGImage from "../../../assets/images/Family/pattern1.png";
+import HeaderImg from "../../../assets/images/Family/FAMILY.png";
+import { AwesomeButton } from "react-awesome-button";
+import "react-awesome-button/dist/styles.css";
+import { useNavigate } from "react-router-dom";
 
 export default function FamilyForm() {
   const [formData, setFormData] = useState({});
   const [showForm, setShowForm] = useState("form1");
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   const HandleSubmit = () => {
     setShowForm("submit");
@@ -21,7 +25,13 @@ export default function FamilyForm() {
 
   const handleNext = () => {
     // Check if there are no null values
-    if (!formData.question1 || !formData.question2 || !formData.question3 || !formData.question4  || !formData.question5) {
+    if (
+      !formData.question1 ||
+      !formData.question2 ||
+      !formData.question3 ||
+      !formData.question4 ||
+      !formData.question5
+    ) {
       setShowModal(true);
       return;
     }
@@ -33,73 +43,144 @@ export default function FamilyForm() {
   };
 
   return (
-    <div className="pt-2 bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${BGImage})` }}>
-      <div className="flex justify-center items-center">
+    <div
+      className="bg-cover bg-center bg-fixed"
+      // style={{ backgroundImage: `url(${BGImage})` }}
+    >
+      <div className="flex justify-center ">
         <div
-          className="w-7/12  h-72 relative rounded-t-3xl bg-stone-100 bg-contain bg-no-repeat  bg-center" style={{ backgroundImage: `url(${HeaderImg})` }}>
-          <Link
-            to="/"
-            className="absolute top-0 left-0 ml-4 mt-4 text-white text-2xl bg-rose-500 px-4 py-2 px-6 rounded-2xl hover:bg-rose-600"
-          >
-            Go Back
-          </Link>
+          // className="w-full  h-72 relative rounded-t-3xl bg-stone-100"
+          className="w-full  h-80 relative rounded-t-3xl bg-stone-100 bg-no-repeat bg-cover bg-contain bg-center"
+          style={{ backgroundImage: `url(${HeaderImg})` }}
+        >
+          <div className="absolute top-0 left-0 ml-4 mt-4">
+            <AwesomeButton
+              type="primary"
+              onReleased={() => {
+                navigate("/");
+              }}
+              style={{
+                "--button-primary-color": "#de2183",
+                "--button-primary-color-dark": "#c20d95",
+                "--button-primary-color-light": "#ffffff",
+                "--button-primary-color-hover": "#de2183",
+                "--button-primary-color-active": "#c20d95",
+                "--button-default-border-radius": "8px",
+                width: "120px",
+                height: "45px",
+                marginRight: "10px",
+                borderStyle: "solid",
+                borderRadius: "10px",
+                borderColor: "black",
+              }}
+            >
+              Go Back
+            </AwesomeButton>
+          </div>
+
           <div className="flex justify-center items-center h-full">
             <span className="text-5xl">Family</span>
           </div>
         </div>
       </div>
 
-      <div className="flex justify-center items-center ">
+      <div className="flex bg-sky-100 justify-center items-center ">
         {showForm == "form1" && (
-          <div className="w-7/12 bg-orange-300 px-20 pt-20 pb-12 relative rounded-b-3xl">
+          <div className="w-12/12 px-20 pt-20 pb-12 relative rounded-b-3xl">
             <FirstPage formData={formData} setFormData={setFormData} />
           </div>
         )}
         {showForm == "form2" && (
-           <div className="w-7/12 bg-amber-500/50 px-20 pt-20 pb-12 relative rounded-b-3xl">
+          <div className="w-full px-20 pt-20  relative rounded-b-3xl">
             <SecondPage formData={formData} setFormData={setFormData} />
           </div>
         )}
       </div>
 
-      <div className="flex justify-center items-center mt-2 pb-10 ">
-        <div className="w-7/12 p-10 py-16 bg-rose-400/70 relative rounded-3xl flex justify-center items-center">
+      <div className="flex justify-center bg-sky-100 items-center  pb-10 ">
+        <div className="w-full mr-10 flex justify-end items-center">
           {showForm == "form1" && (
-            <button
-              onClick={() => {
+            <AwesomeButton
+              type="primary"
+              onReleased={() => {
                 handleNext();
               }}
-              className=" animate-bounce py-3 px-14 inline-flex border-4 border-purple-600 items-center gap-x-2 text-xl font-semibold rounded-full border border-transparent bg-purple-500 text-white hover:bg-purple-600 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+              style={{
+                "--button-primary-color": "#21b8de",
+                "--button-primary-color-dark": "#0494b8",
+                "--button-primary-color-light": "#ffffff",
+                "--button-primary-color-hover": "#12a0c4",
+                "--button-primary-color-active": "#038aab",
+                "--button-default-border-radius": "8px",
+                width: "120px",
+                height: "45px",
+                marginRight: "10px",
+                borderStyle: "solid",
+                borderRadius: "10px",
+                borderColor: "black",
+              }}
             >
               Next form
-            </button>
+            </AwesomeButton>
           )}
           {showForm == "form2" && (
-            <button
-            className="py-3 px-14 inline-flex border-4 border-purple-600 items-center gap-x-2 text-xl font-semibold rounded-full border border-transparent bg-teal-400 text-white hover:bg-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-              onClick={() => {
+            <AwesomeButton
+              type="primary"
+              onReleased={() => {
                 setShowForm("form1");
+              }}
+              style={{
+                "--button-primary-color": "#21b8de",
+                "--button-primary-color-dark": "#0494b8",
+                "--button-primary-color-light": "#ffffff",
+                "--button-primary-color-hover": "#12a0c4",
+                "--button-primary-color-active": "#038aab",
+                "--button-default-border-radius": "8px",
+                width: "120px",
+                height: "45px",
+                marginRight: "10px",
+                borderStyle: "solid",
+                borderRadius: "10px",
+                borderColor: "black",
               }}
             >
               Back form
-            </button>
+            </AwesomeButton>
           )}
           {showForm == "form2" && (
-            <button
-            className="ml-4 py-3 px-14 inline-flex border-4 border-purple-600 items-center gap-x-2 text-xl font-semibold rounded-full border border-transparent bg-purple-500 text-white hover:bg-purple-600 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-              onClick={HandleSubmit}
+            <AwesomeButton
+              type="primary"
+              onReleased={() => {
+                HandleSubmit();
+              }}
+              style={{
+                "--button-primary-color": "#deac21",
+                "--button-primary-color-dark": "#997000",
+                "--button-primary-color-light": "#ffffff",
+                "--button-primary-color-hover": "#af8718",
+                "--button-primary-color-active": "#a07b17",
+                "--button-default-border-radius": "8px",
+                width: "120px",
+                height: "45px",
+                marginRight: "10px",
+                borderStyle: "solid",
+                borderRadius: "10px",
+                borderColor: "black",
+              }}
             >
               Submit
-            </button>
+            </AwesomeButton>
           )}
         </div>
       </div>
+      {showForm == "submit" && <div className=""></div>}
+
       <Modal
         isOpen={showModal}
         message="Hey you need to fill everything to go to the next part :) "
         onClose={handleCloseModal}
       />
-      <SuccessModal />
+      {showForm == "submit" && <SuccessModal quiz={"Quiz 01"} />}
     </div>
   );
 }
