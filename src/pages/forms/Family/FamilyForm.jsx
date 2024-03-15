@@ -120,7 +120,7 @@ export default function FamilyForm() {
                 borderColor: "black",
               }}
             >
-              Next form
+              Next page
             </AwesomeButton>
           )}
           {showForm == "form2" && (

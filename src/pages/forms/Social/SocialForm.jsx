@@ -78,7 +78,7 @@ export default function SocialForm() {
           </div>
 
           <div className="flex justify-center items-center h-full">
-            <span className="text-5xl">Social</span>
+            <span className="text-8xl">Social</span>
           </div>
         </div>
       </div>

@@ -29,7 +29,7 @@ const SuccessModal = ({quiz}) => {
         <div className="flex items-center justify-center">
           <div className="bg-yellow-100 shadow-lg rounded-xl w-60 pt-10 mb-6 ">
             <p className="font-short-stack m-4 font-bold text-lg mb-12">
-              Your answers are now saved. Great Job kiddo.
+              You successfully completed the quiz. Great Job kiddo.
             </p>
           </div>
         </div>
@@ -57,14 +57,14 @@ const SuccessModal = ({quiz}) => {
                 borderColor: "black"
               }}
             >
-              Redo
+              Redo Quiz
             </AwesomeButton>
           </div>
           <div className="mt-2">
             <AwesomeButton
               type="primary"
               onReleased={() => {
-                navigate("/");
+                navigate("/selection");
               }}
               style={{
                 "--button-primary-color": "#ffbc05",
@@ -82,7 +82,7 @@ const SuccessModal = ({quiz}) => {
                 borderColor: "black"
               }}
             >
-              Go Home
+              Home Page
             </AwesomeButton>
           </div>
         </div>
