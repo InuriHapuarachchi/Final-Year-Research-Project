@@ -56,7 +56,7 @@ export default function SocialForm() {
             <AwesomeButton
               type="primary"
               onReleased={() => {
-                navigate("/");
+                navigate("/selection");
               }}
               style={{
                 "--button-primary-color": "#de2183",
