@@ -78,7 +78,7 @@ export default function SchoolForm() {
           </div>
 
           <div className="flex justify-center items-center h-full">
-            <span className="text-5xl">School</span>
+            <span className="text-8xl">School</span>
           </div>
         </div>
       </div>
