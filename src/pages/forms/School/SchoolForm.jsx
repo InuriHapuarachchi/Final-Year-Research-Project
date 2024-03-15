@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import { useState } from "react";
 import FirstPage from "./QuestionPage1";
 import SecondPage from "./QuestionPage2";
-import FamBGImg from "../../../assets/images/Family/fam.png";
+
 import Modal from "../../../components/Modal";
 import SuccessModal from "../../../components/Success";
 import HeaderImg from "../../../assets/images/School/SCHOOL.png";
