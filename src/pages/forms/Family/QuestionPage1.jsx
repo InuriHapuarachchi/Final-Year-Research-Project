@@ -167,18 +167,18 @@ import HappyImg from "../../../assets/images/Family/Q1/happy family.png"
 import SadImg from "../../../assets/images/Family/Q1/sad family.png"
 import FrightenedImg from "../../../assets/images/Family/Q1/frightened.png"
 import supportiveImg from "../../../assets/images/Family/Q1/supportive family.png"
-import unlovedImg from  "../../../assets/images/Family/Q1/unloved and not cared.png"
+import unlovedImg from "../../../assets/images/Family/Q1/unloved and not cared.png"
 import MCQs from "../QuestionCards/MCQs";
-import { 
-  Question1, 
-  AnswerForQuestion1, 
-  Question2, 
-  AnswerForQuestion2, 
-  Question2Part2, 
-  AnswerForQuestion2Part2,  
-  Question3, 
-  AnswerForQuestion3, 
-  Question3Part2, 
+import {
+  Question1,
+  AnswerForQuestion1,
+  Question2,
+  AnswerForQuestion2,
+  Question2Part2,
+  AnswerForQuestion2Part2,
+  Question3,
+  AnswerForQuestion3,
+  Question3Part2,
   AnswerForQuestion3Part2,
   Question4,
   Question4Part2,
@@ -187,14 +187,23 @@ import {
   Question5,
   AnswerForQuestion5,
   Question5Part2,
-  AnswerForQuestion5Part2} from "./QuestionBank";
- 
+  AnswerForQuestion5Part2,
+  Question6,
+  AnswerForQuestion6,
+  Question6Part2,
+  AnswerForQuestion6Part2,
+  Question7,
+  AnswerForQuestion7,
+  Question7Part2,
+  AnswerForQuestion7Part2
+} from "./QuestionBank";
+
 const FirstPage = ({ formData, setFormData }) => {
   const { register } = useForm();
   // const color = "bg-gradient-to-br from-sky-300 to-sky-300";
   const color = "bg-white";
   const borderColor = "border-inherit";
- 
+
   // const question1 = "01. How would you describe how you feel when you spend time with your family?";
   // const answerForQuestion1 = [
   //   { image: HappyImg, text: "happy", caption: "Brings me joy and happiness" },
@@ -233,7 +242,7 @@ const FirstPage = ({ formData, setFormData }) => {
   // const question5Answer1 = "yes i am frightened";
   // const question5Answer2 = "i am happy with my family";
   // const question5Part2 = "why do you feel frightened?";
- 
+
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const handleAnswerSelect = (questionIndex, answerText) => {
     setSelectedAnswer(answerText);
@@ -243,7 +252,7 @@ const FirstPage = ({ formData, setFormData }) => {
       [questionKey]: answerText,
     }));
   };
- 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -251,7 +260,7 @@ const FirstPage = ({ formData, setFormData }) => {
       [name]: value,
     }));
   };
- 
+
   return (
     <div>
       <form>
@@ -267,14 +276,14 @@ const FirstPage = ({ formData, setFormData }) => {
             borderColor={borderColor}
           />
         </div>
- 
+
         {/* Question 02 */}
         <div
           className={`bg-white font-short-stack p-6 py-10 rounded-3xl shadow-md mb-12  ${borderColor}`}
         >
           <div className="mb-4">
             <div className="flex flex-col ">
-              <MCQs answers={AnswerForQuestion2} question={Question2} regQuestion={"question2"} setFormData={setFormData}/>
+              <MCQs answers={AnswerForQuestion2} question={Question2} regQuestion={"question2"} setFormData={setFormData} />
               {/* <label className="flex items-center mb-2">
                 <input
                   type="radio"
@@ -333,8 +342,8 @@ const FirstPage = ({ formData, setFormData }) => {
               </label> */}
             </div>
           </div>
-          {console.log("test1", formData.question2)}
-          {console.log("test2", AnswerForQuestion2[1].emotion)}
+          {/* {console.log("test1", formData.question2)}
+          {console.log("test2", AnswerForQuestion2[1].emotion)} */}
           {formData.question2 == AnswerForQuestion2[1].emotion && (
             <div className="mt-6">
               {/* <label className="block text-xl ml-10 font-semibold mb-2">
@@ -348,12 +357,12 @@ const FirstPage = ({ formData, setFormData }) => {
                 {...register("question2Part2")}
                 onChange={handleChange}
               /> */}
-              
-              <MCQs answers={AnswerForQuestion2} question={Question2Part2} regQuestion={"question2Part2"} setFormData={setFormData}/>
+
+              <MCQs answers={AnswerForQuestion2} question={Question2Part2} regQuestion={"question2Part2"} setFormData={setFormData} />
             </div>
           )}
         </div>
- 
+
         {/* Question 03 */}
         <div
           className={` bg-white font-short-stack py-10 p-6 rounded-3xl shadow-md mb-12  ${borderColor}`}
@@ -363,7 +372,7 @@ const FirstPage = ({ formData, setFormData }) => {
               {Question3}
             </label> */}
             <div className="flex flex-col ">
-            <MCQs answers={AnswerForQuestion3} question={Question3} regQuestion={"question3"} setFormData={setFormData}/>
+              <MCQs answers={AnswerForQuestion3} question={Question3} regQuestion={"question3"} setFormData={setFormData} />
               {/* <label className="flex items-center mb-2">
                 <input
                   type="radio"
@@ -424,12 +433,12 @@ const FirstPage = ({ formData, setFormData }) => {
           </div>
           {formData.question3 == AnswerForQuestion3[4].emotion && (
             <div className="mt-6">
-             
-              <MCQs answers={AnswerForQuestion3Part2} question={Question3Part2} regQuestion={"question3Part2"} setFormData={setFormData}/>
+
+              <MCQs answers={AnswerForQuestion3Part2} question={Question3Part2} regQuestion={"question3Part2"} setFormData={setFormData} />
             </div>
           )}
         </div>
- 
+
         {/* Question 04 */}
         <div
           className={` bg-white font-short-stack py-10 p-6 rounded-3xl shadow-md mb-12  ${borderColor}`}
@@ -439,7 +448,7 @@ const FirstPage = ({ formData, setFormData }) => {
               {question4}
             </label> */}
             <div className="flex flex-col ">
-            <MCQs answers={AnswerForQuestion4} question={Question4} regQuestion={"question4"} setFormData={setFormData}/>
+              <MCQs answers={AnswerForQuestion4} question={Question4} regQuestion={"question4"} setFormData={setFormData} />
 
               {/* <label className="flex items-center mb-2">
                 <input
@@ -501,22 +510,22 @@ const FirstPage = ({ formData, setFormData }) => {
           </div>
           {formData.question4 == AnswerForQuestion4[4].emotion && (
             <div className="mt-6">
-             
-              <MCQs answers={AnswerForQuestion4Part2} question={Question4Part2} regQuestion={"question4Part2"} setFormData={setFormData}/>
+
+              <MCQs answers={AnswerForQuestion4Part2} question={Question4Part2} regQuestion={"question4Part2"} setFormData={setFormData} />
             </div>
           )}
         </div>
- 
+
         {/* Question 05 */}
         <div
-          className={`py-10 p-6 font-short-stack rounded-3xl shadow-md mb-2 bg-white ${borderColor}`}
+          className={`py-10 p-6 font-short-stack rounded-3xl shadow-md mb-12 bg-white ${borderColor}`}
         >
           <div className="mb-4">
             {/* <label className="block text-xl font-semibold mb-2">
               {question5}
             </label> */}
             <div className="flex items-center space-x-8">
-            <MCQs answers={AnswerForQuestion5} question={Question5} regQuestion={"question5"} setFormData={setFormData}/>
+              <MCQs answers={AnswerForQuestion5} question={Question5} regQuestion={"question5"} setFormData={setFormData} />
 
               {/* <label className="flex items-center">
                 <input
@@ -541,7 +550,7 @@ const FirstPage = ({ formData, setFormData }) => {
                 <span className="ml-2 text-xl">No</span>
               </label> */}
             </div>
-            </div>
+          </div>
           {/* </div> */}
           {/* {formData.question5 == question5Answer1 && (
             <div>
@@ -562,14 +571,46 @@ const FirstPage = ({ formData, setFormData }) => {
           {console.log("test2", AnswerForQuestion5[4].emotion)} */}
           {formData.question5 == AnswerForQuestion5[4].emotion && (
             <div className="mt-6">
-             
-              <MCQs answers={AnswerForQuestion5Part2} question={Question5Part2} regQuestion={"question5Part2"} setFormData={setFormData}/>
+
+              <MCQs answers={AnswerForQuestion5Part2} question={Question5Part2} regQuestion={"question5Part2"} setFormData={setFormData} />
             </div>
           )}
         </div>
+
+
+        {/* Question 06 */}
+        <div
+          className={`py-10 p-6 font-short-stack rounded-3xl shadow-md mb-12 bg-white ${borderColor}`}>
+          <div className="mb-4">
+            <div className="flex items-center space-x-8">
+              <MCQs answers={AnswerForQuestion6} question={Question6} regQuestion={"question6"} setFormData={setFormData} />
+            </div>
+          </div>
+          {formData.question6 == AnswerForQuestion6[4].emotion && (
+            <div className="mt-6">
+              <MCQs answers={AnswerForQuestion6Part2} question={Question6Part2} regQuestion={"question6Part2"} setFormData={setFormData} />
+            </div>
+          )}
+        </div>
+
+        {/* Question 07 */}
+        <div
+          className={`py-10 p-6 font-short-stack rounded-3xl shadow-md mb-12 bg-white ${borderColor}`}>
+          <div className="mb-4">
+            <div className="flex items-center space-x-8">
+              <MCQs answers={AnswerForQuestion7} question={Question7} regQuestion={"question7"} setFormData={setFormData} />
+            </div>
+          </div>
+          {formData.question7 == AnswerForQuestion7[4].emotion && (
+            <div className="mt-6">
+              <MCQs answers={AnswerForQuestion7Part2} question={Question7Part2} regQuestion={"question7Part2"} setFormData={setFormData} />
+            </div>
+          )}
+        </div>
+
       </form>
     </div>
   );
 };
- 
+
 export default FirstPage;

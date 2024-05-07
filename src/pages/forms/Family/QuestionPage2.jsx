@@ -126,6 +126,17 @@
 
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import MCQs from "../QuestionCards/MCQs";
+import {
+  Question8,
+  AnswerForQuestion8,
+  Question8Part2,
+  AnswerForQuestion8Part2,
+  Question9,
+  AnswerForQuestion9,
+  Question9Part2,
+  AnswerForQuestion9Part2
+}  from "./QuestionBank";
  
 const SecondPage = ({ formData, setFormData }) => {
   const { register } = useForm();
@@ -133,13 +144,13 @@ const SecondPage = ({ formData, setFormData }) => {
   const borderColor = "border-sky-300";
   const [expand, setExpand] = useState(false);
  
-  const question6 = "06. Does your family support you in your work?And how do they do so?";
+  // const question6 = "06. Does your family support you in your work?And how do they do so?";
   // const question6Answer1 = "i am sad/frightened because my family fights all the time"
   // const question6Answer2 = "i am happy with my family"
-  const question7 = "07. Does your family spend time together?what activities do you do?(Going on trips, Having meals together, Looking after each other etc) ";
+  // const question7 = "07. Does your family spend time together?what activities do you do?(Going on trips, Having meals together, Looking after each other etc) ";
   // const question7Answer1 = "i have a happy family"
   // const question7Answer2 = "i have a sad family"
-  const question8 = "08. Do you think your family loves and care for you?why do you think so?";
+  // const question8 = "08. Do you think your family loves and care for you?why do you think so?";
   // const question8Answer1 = "my family loves and care for me"
   // const question8Answer2 = "my family doesnt love me and care for me"
   // const question8Part2 = "Why do you think so?"
@@ -157,7 +168,7 @@ const SecondPage = ({ formData, setFormData }) => {
     <div>
       <form>
         {/* Question 06 */}
-        <div
+        {/* <div
           className={`bg-white py-10 font-short-stack p-6 rounded-3xl shadow-md mb-12 ${borderColor}`}
         >
           <div className="mb-4">
@@ -171,7 +182,7 @@ const SecondPage = ({ formData, setFormData }) => {
               value={formData.question6 || ""}
               {...register("question6")}
               onChange={handleChange}
-            />
+            /> */}
             {/* <div className="flex items-center space-x-8">
               <label className="flex items-center">
                 <input
@@ -196,11 +207,11 @@ const SecondPage = ({ formData, setFormData }) => {
                 <span className="ml-2 text-lg">No</span>
               </label>
             </div> */}
-          </div>
+          {/* </div>
         </div>
- 
+  */}
         {/* Question 07 */}
-        <div
+        {/* <div
           className={` bg-white py-10 font-short-stack p-6 rounded-3xl shadow-md mb-12  ${borderColor}`}
         >
           <div className="mb-4">
@@ -214,7 +225,7 @@ const SecondPage = ({ formData, setFormData }) => {
               value={formData.question7 || ""}
               {...register("question7")}
               onChange={handleChange}
-            />
+            /> */}
             {/* <div className="flex items-center space-x-8">
               <label className="flex items-center">
                 <input
@@ -239,11 +250,11 @@ const SecondPage = ({ formData, setFormData }) => {
                 <span className="ml-2 text-lg">No</span>
               </label>
             </div> */}
-          </div>
-        </div>
+          {/* </div>
+        </div> */}
  
         {/* Question 08 */}
-        <div
+        {/* <div
           className={`bg-white py-10 p-6 font-short-stack rounded-3xl shadow-md mb-12 ${borderColor}`}
         >
           <div className="mb-4">
@@ -257,7 +268,7 @@ const SecondPage = ({ formData, setFormData }) => {
               value={formData.question8 || ""}
               {...register("question8")}
               onChange={handleChange}
-            />
+            /> */}
             {/* <div className="flex items-center space-x-8">
               <label className="flex items-center">
                 <input
@@ -282,7 +293,7 @@ const SecondPage = ({ formData, setFormData }) => {
                 <span className="ml-2 text-lg">No</span>
               </label>
             </div> */}
-          </div>
+          {/* </div> */}
           {/* {formData.question8 == question8Answer2 && (
             <div>
               <label className="block text-xl ml-10 font-semibold mb-2">
@@ -298,7 +309,58 @@ const SecondPage = ({ formData, setFormData }) => {
               />
             </div>
           )} */}
+        {/* </div> */}
+
+        {/* Question 08 */}
+        <div
+          className={`py-10 p-6 font-short-stack rounded-3xl shadow-md mb-12 bg-white ${borderColor}`}>
+          <div className="mb-4">
+            <div className="flex items-center space-x-8">
+              <MCQs answers={AnswerForQuestion8} question={Question8} regQuestion={"question8"} setFormData={setFormData} />
+            </div>
+          </div>
+          {formData.question8 == AnswerForQuestion8[4].emotion && (
+            <div className="mt-6">
+              <MCQs answers={AnswerForQuestion8Part2} question={Question8Part2} regQuestion={"question8Part2"} setFormData={setFormData} />
+            </div>
+          )}
         </div>
+
+
+        {/* Question 09 */}
+        <div
+          className={`py-10 p-6 font-short-stack rounded-3xl shadow-md mb-12 bg-white ${borderColor}`}>
+          <div className="mb-4">
+            <div className="flex items-center space-x-8">
+              <MCQs answers={AnswerForQuestion9} question={Question9} regQuestion={"question9"} setFormData={setFormData} />
+            </div>
+          </div>
+          {formData.question6 == AnswerForQuestion9[4].emotion && (
+            <div className="mt-6">
+              <MCQs answers={AnswerForQuestion9Part2} question={Question9Part2} regQuestion={"question9Part2"} setFormData={setFormData} />
+            </div>
+          )}
+        </div>
+
+
+
+        {/* Question 10 */}
+        {/* <div
+          className={`py-10 p-6 font-short-stack rounded-3xl shadow-md mb-2 bg-white ${borderColor}`}>
+          <div className="mb-4">
+            <div className="flex items-center space-x-8">
+              <MCQs answers={AnswerForQuestion6} question={Question6} regQuestion={"question6"} setFormData={setFormData} />
+            </div>
+          </div>
+          {formData.question6 == AnswerForQuestion6[4].emotion && (
+            <div className="mt-6">
+              <MCQs answers={AnswerForQuestion6Part2} question={Question6Part2} regQuestion={"question6Part2"} setFormData={setFormData} />
+            </div>
+          )}
+        </div> */}
+
+
+
       </form>
     </div>
   );

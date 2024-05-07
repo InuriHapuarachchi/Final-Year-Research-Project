@@ -87,3 +87,79 @@ export const AnswerForQuestion5Part2 = [
     {text : "Rules make me feel restricted", emotion : "unloved" },
     {text : " Rules make me anxious", emotion : "frightened" },
   ];
+
+
+  export const Question6 = "06. How do you feel when someone in your family is upset?"
+  export const AnswerForQuestion6 = [
+      {text : "Try to cheer them up", emotion : "happy" },
+      {text : "  Feel sad too ", emotion : "sad" },
+      {text : "Give them space and comfort", emotion : "loved" },
+      {text : "Unsure how to react", emotion : "unloved" },
+      {text : "Feel uncomfortable or scared", emotion : "frightened" },
+    ];
+  export const Question6Part2 = "Can you tell me more about why you feel uncomfortable? Is it because you're worried about them or unsure how to act?"
+  export const AnswerForQuestion6Part2 = [
+      {text : "Rules make me feel safe", emotion : "happy" },
+      {text : " Disagree with rules at times ", emotion : "sad" },
+      {text : "Understand and respect rules", emotion : "loved" },
+      {text : "Rules make me feel restricted", emotion : "unloved" },
+      {text : " Rules make me anxious", emotion : "frightened" },
+    ];
+
+
+
+    export const Question7 = "07. What do you do when you're angry with someone in your family?"
+    export const AnswerForQuestion7 = [
+        {text : "Discuss and resolve issues", emotion : "happy" },
+        {text : "Keep my feelings to myself", emotion : "sad" },
+        {text : " Express my anger but seek resolution", emotion : "loved" },
+        {text : "Get upset or cry ", emotion : "unloved" },
+        {text : "Ignore or avoid confrontation", emotion : "frightened" },
+      ];
+    export const Question7Part2 = "Can you tell me more about why you feel uncomfortable? Is it because you're worried about them or unsure how to act?"
+    export const AnswerForQuestion7Part2 = [
+        {text : "Rules make me feel safe", emotion : "happy" },
+        {text : " Disagree with rules at times ", emotion : "sad" },
+        {text : "Understand and respect rules", emotion : "loved" },
+        {text : "Rules make me feel restricted", emotion : "unloved" },
+        {text : " Rules make me anxious", emotion : "frightened" },
+      ];
+
+
+      export const Question8 = "08. What do you do when you're angry with someone in your family?"
+      export const AnswerForQuestion8 = [
+          {text : "Discuss and resolve issues", emotion : "happy" },
+          {text : "Keep my feelings to myself", emotion : "sad" },
+          {text : " Express my anger but seek resolution", emotion : "loved" },
+          {text : "Get upset or cry ", emotion : "unloved" },
+          {text : "Ignore or avoid confrontation", emotion : "frightened" },
+        ];
+      export const Question8Part2 = "Can you tell me more about why you feel uncomfortable? Is it because you're worried about them or unsure how to act?"
+      export const AnswerForQuestion8Part2 = [
+          {text : "Rules make me feel safe", emotion : "happy" },
+          {text : " Disagree with rules at times ", emotion : "sad" },
+          {text : "Understand and respect rules", emotion : "loved" },
+          {text : "Rules make me feel restricted", emotion : "unloved" },
+          {text : " Rules make me anxious", emotion : "frightened" },
+        ];
+
+
+        export const Question9 = "09. How do you feel about your relationship with your parents?"
+        export const AnswerForQuestion9 = [
+            {text : "Close and loving", emotion : "happy" },
+            {text : "Sometimes distant", emotion : "sad" },
+            {text : "Complicated but loving", emotion : "loved" },
+            {text : "Unsure or distant", emotion : "unloved" },
+            {text : "Not great, feel distant", emotion : "frightened" },
+          ];
+        export const Question9Part2 = "Can you tell me more about why you feel uncomfortable? Is it because you're worried about them or unsure how to act?"
+        export const AnswerForQuestion9Part2 = [
+            {text : "Rules make me feel safe", emotion : "happy" },
+            {text : " Disagree with rules at times ", emotion : "sad" },
+            {text : "Understand and respect rules", emotion : "loved" },
+            {text : "Rules make me feel restricted", emotion : "unloved" },
+            {text : " Rules make me anxious", emotion : "frightened" },
+          ];
+
+
+

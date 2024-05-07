@@ -497,7 +497,9 @@ export default function FamilyForm() {
       !formData.question2 ||
       !formData.question3 ||
       !formData.question4 ||
-      !formData.question5
+      !formData.question5 ||
+      !formData.question6 ||
+      !formData.question7 
     ) {
       setShowModal(true);
       return;
@@ -508,9 +510,8 @@ export default function FamilyForm() {
   const handleForm2 = () => {
     // Check if there are no null values
     if (
-      !formData.question6 ||
-      !formData.question7 ||
-      !formData.question8
+      !formData.question8 ||
+      !formData.question9
     ) {
       setShowModal(true);
       return;
