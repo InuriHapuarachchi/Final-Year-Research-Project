@@ -1,10 +1,10 @@
 export const homeContent = {
     title: "ABOUT US",
-    aboutUs: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+    aboutUs: "We understand that every child is unique, with distinct learning styles and emotional needs. That's why we've developed a personalized approach that goes beyond traditional education. Through cutting-edge technology and innovative teaching methods, we delve deep into each child's journey, uncovering their emotional hurdles and knowledge gaps.",
     
-    bt1Name : "This is butt 1",
+    bt1Name : "Emotion Analysis",
     btn1Navigation : "/selection",
-    bt2Name : "This is butt 1",
+    bt2Name : "Knowledge calculator",
     btn2Navigation : "/FamilyQuiz",
 
     TopRightButtonName: "Assignment",

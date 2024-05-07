@@ -62,7 +62,7 @@ function HomePage() {
                   borderColor: "black"
                 }}
               >
-                {homeContent.bt1Name}
+                {homeContent.bt2Name}
               </AwesomeButton>
             </div>
           </div>
