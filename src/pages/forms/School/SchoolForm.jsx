@@ -12,24 +12,24 @@ import "react-awesome-button/dist/styles.css";
 import { useNavigate } from "react-router-dom";
 
 export default function SchoolForm() {
-  const [formData, setFormData] = useState({});
+  const [formDataSchool, setformDataSchool] = useState({});
   const [showForm, setShowForm] = useState("form1");
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
   const HandleSubmit = () => {
     setShowForm("submit");
-    console.log("hello", formData);
+    console.log("hello from school", formDataSchool);
   };
 
   const handleNext = () => {
     // Check if there are no null values
     if (
-      !formData.question1 ||
-      !formData.question2 ||
-      !formData.question3 ||
-      !formData.question4 ||
-      !formData.question5
+      !formDataSchool.question1 ||
+      !formDataSchool.question2 ||
+      !formDataSchool.question3 ||
+      !formDataSchool.question4 ||
+      !formDataSchool.question5
     ) {
       setShowModal(true);
       return;
@@ -86,12 +86,12 @@ export default function SchoolForm() {
       <div className="flex bg-sky-100 justify-center items-center ">
         {showForm == "form1" && (
           <div className="w-12/12 px-20 pt-20 pb-12 relative rounded-b-3xl">
-            <FirstPage formData={formData} setFormData={setFormData} />
+            <FirstPage formData={formDataSchool} setFormData={setformDataSchool} />
           </div>
         )}
         {showForm == "form2" && (
           <div className="w-full px-20 pt-20  relative rounded-b-3xl">
-            <SecondPage formData={formData} setFormData={setFormData} />
+            <SecondPage formData={formDataSchool} setFormData={setformDataSchool} />
           </div>
         )}
       </div>
