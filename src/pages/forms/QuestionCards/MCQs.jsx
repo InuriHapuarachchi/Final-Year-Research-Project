@@ -1,8 +1,12 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { useState } from 'react';
 
-const MCQs = ({ question, answers, regQuestion, selectedAnswer, onAnswerSelect, setFormData, color, borderColor }) => {
+const MCQs = ({ question, answers, regQuestion, nselectedAnswer, onAnswerSelect, setFormData, color, borderColor }) => {
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
+    const [textInputValue, setTextInputValue] = useState('');
     const { register } = useForm();
+    { console.log('test2', nselectedAnswer) }
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevData => ({
@@ -11,15 +15,24 @@ const MCQs = ({ question, answers, regQuestion, selectedAnswer, onAnswerSelect, 
         }));
     };
 
+    const handleRadioChange = (event) => {
+        const value = event.target.value;
+        setSelectedAnswer(value === selectedAnswer ? null : value);
+    };
+
+    const handleTextInputChange = (event) => {
+        setTextInputValue(event.target.value);
+    };
+
     // const handleClick = (answerText) => {
     //     onAnswerSelect(answerText);
     // };
 
     return (
         <div>
-              <label className="block text-xl font-semibold mb-2">
+            <label className="block text-xl font-semibold mb-2">
                 {question}
-              </label>
+            </label>
             {answers.map((answer, index) => (
                 // <div key={index} onClick={() => handleClick(answer.text)} className={`cursor-pointer p-2 ${selectedAnswer === answer.text ? 'bg-sky-500' : 'bg-white'} rounded-md border border-gray-300`}>
                 <div key={index}>
@@ -34,9 +47,18 @@ const MCQs = ({ question, answers, regQuestion, selectedAnswer, onAnswerSelect, 
                         />
                         <span className="ml-2 text-xl">{answer.text}</span>
                     </label>
-
                 </div>
             ))}
+
+            <input
+                type="text"
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-400"
+                placeholder="Why do you think so?"
+                value={nselectedAnswer}
+                {...register(regQuestion)}
+                onChange={handleChange}
+            />
+
         </div>
     );
 };

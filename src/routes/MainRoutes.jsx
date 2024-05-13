@@ -6,7 +6,8 @@ import FamilyForm from "../pages/forms/Family/FamilyForm";
 import HomePage from "../pages/Home/Home";
 import SchoolForm from "../pages/forms/School/SchoolForm";
 import SocialForm from "../pages/forms/Social/SocialForm";
-import { Reports } from "../pages/Reports";
+// import { Reports } from "../pages/Reports";
+import Reports from "../pages/Reports";
 
 export default function MainRoutes() {
   return (

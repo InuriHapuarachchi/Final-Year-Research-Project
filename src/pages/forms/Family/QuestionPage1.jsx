@@ -283,7 +283,7 @@ const FirstPage = ({ formData, setFormData }) => {
         >
           <div className="mb-4">
             <div className="flex flex-col ">
-              <MCQs answers={AnswerForQuestion2} question={Question2} regQuestion={"question2"} setFormData={setFormData} />
+              <MCQs answers={AnswerForQuestion2} question={Question2}  nselectedAnswer={formData.question2} regQuestion={"question2"} setFormData={setFormData} />
               {/* <label className="flex items-center mb-2">
                 <input
                   type="radio"
@@ -358,7 +358,7 @@ const FirstPage = ({ formData, setFormData }) => {
                 onChange={handleChange}
               /> */}
 
-              <MCQs answers={AnswerForQuestion2} question={Question2Part2} regQuestion={"question2Part2"} setFormData={setFormData} />
+              <MCQs answers={AnswerForQuestion2}  nselectedAnswer={formData.question2Part2} question={Question2Part2} regQuestion={"question2Part2"} setFormData={setFormData} />
             </div>
           )}
         </div>
