@@ -17,17 +17,17 @@ const MCQs = ({
   const [radioOn, setRadio] = useState(true);
   const { register } = useForm();
   {
-    console.log("test2", nselectedAnswer);
+    // console.log("test2", nselectedAnswer);
   }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // if (name == value) {
-    //   setFormData((prevData) => ({
-    //     ...prevData,
-    //     [name]: null,
-    //   }));
-    // }
+    if (name == value) {
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: null,
+      }));
+    }
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -64,7 +64,7 @@ const MCQs = ({
         {answers.map((answer, index) => (
           // <div key={index} onClick={() => handleClick(answer.text)} className={`cursor-pointer p-2 ${selectedAnswer === answer.text ? 'bg-sky-500' : 'bg-white'} rounded-md border border-gray-300`}>
           <div onClick={turnOnRadio}  key={index}>
-            <label className={`flex items-center mb-2 flex items-center mb-2 ${!radioOn ? 'pointer-events-none' : ''}`}>
+            <label className={`flex items-center mb-2 flex items-center mb-2 `}>
               <input
                 type="radio"
                 name="favoriteSibling"
