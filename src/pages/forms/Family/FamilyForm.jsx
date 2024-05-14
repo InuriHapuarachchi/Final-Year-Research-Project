@@ -462,7 +462,7 @@ export default function FamilyForm() {
   const [adviceData, setAdviceData] = useState([]);
   const navigate = useNavigate();
  
-  const HandleSubmit = () => {
+  const handleSubmit = () => {
     setShowForm("submit");
     console.log("hello", (formData));
     getAdvice(Object.values(formData)).then(data => {
@@ -475,7 +475,8 @@ export default function FamilyForm() {
     myHeaders.append("Content-Type", "application/json");
  
     let raw = JSON.stringify({
-      "sentence": form_data
+      "sentence": form_data,
+      type:"family_form" // <=======  INURI THIS IS THE FORM IDENTIFIER. FOR DIFFERENT DEFERENT FORMS SEND UNIQUE VALUES 
     });
  
     let requestOptions = {
@@ -516,7 +517,7 @@ export default function FamilyForm() {
       setShowModal(true);
       return;
     }
-    HandleSubmit()
+    handleSubmit()
   };
  
   const handleCloseModal = () => {
