@@ -41,12 +41,12 @@ const FirstPage = ({ formData, setFormData }) => {
   const borderColor = "border-inherit";
 
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const handleAnswerSelect = (questionIndex, answerText) => {
+  const handleAnswerSelect = (questionIndex, answerText, Question1) => {
     setSelectedAnswer(answerText);
     const questionKey = `question${questionIndex}`;
     setFormData((prevData) => ({
       ...prevData,
-      [questionKey]: [answerText, getEmotionValue(answerText)],
+      [questionKey]: [Question1, answerText, getEmotionValue(answerText)],
     }));
   };
 
@@ -67,7 +67,7 @@ const FirstPage = ({ formData, setFormData }) => {
             question={Question1}
             answers={AnswerForQuestion1}
             selectedAnswer={selectedAnswer}
-            onAnswerSelect={(answerText) => handleAnswerSelect("1", answerText)}
+            onAnswerSelect={(answerText) => handleAnswerSelect("1", answerText, Question1)}
             setFormData={setFormData}
             color={"bg-white py-12 font-short-stack"}
             borderColor={borderColor}

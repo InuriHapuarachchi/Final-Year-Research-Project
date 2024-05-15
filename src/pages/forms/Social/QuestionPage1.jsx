@@ -26,12 +26,12 @@ const FirstPage = ({ formData, setFormData }) => {
   const question5 = "05. Do you have any favourite brother or sister?";
 
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const handleAnswerSelect = (questionIndex, answerText) => {
+  const handleAnswerSelect = (questionIndex, answerText, question) => {
     setSelectedAnswer(answerText);
     const questionKey = `question${questionIndex}`;
     setFormData((prevData) => ({
       ...prevData,
-      [questionKey]: answerText,
+      [questionKey]: [question, answerText], 
     }));
   };
 
@@ -52,7 +52,7 @@ const FirstPage = ({ formData, setFormData }) => {
             question={question1}
             answers={answerForQuestion1}
             selectedAnswer={selectedAnswer}
-            onAnswerSelect={(answerText) => handleAnswerSelect("1", answerText)}
+            onAnswerSelect={(answerText) => handleAnswerSelect("1", answerText, question1 )}
             setFormData={setFormData}
             color={"bg-white py-12 font-short-stack"}
             borderColor={borderColor}

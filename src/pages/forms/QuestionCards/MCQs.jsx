@@ -18,7 +18,7 @@ const MCQs = ({
   const [radioOn, setRadio] = useState(true);
   const { register } = useForm();
 
-  const handleChange = (e, ans, from_radio = false) => {
+  const handleChange = (e, ans, from_radio = false, question) => {
     const { name, value } = e.target;
     if (name == value) {
       setFormData((prevData) => ({
@@ -29,7 +29,7 @@ const MCQs = ({
     console.log(getEmotionValue, "=pp========")
     setFormData((prevData) => ({
       ...prevData,
-      [name]: from_radio ? [ans, getEmotionValue(value)] : value,
+      [name]: from_radio ? [question, ans, getEmotionValue(value)] : value,
     }));
   };
 
@@ -69,7 +69,7 @@ const MCQs = ({
                 name="favoriteSibling"
                 value={answer.emotion}
                 {...register(regQuestion)}
-                onChange={(e) => handleChange(e, answer.text, true)}
+                onChange={(e) => handleChange(e, answer.text, true, question)}
                 className={`appearance-none h-8 w-8 border  rounded-full  ${
                   radioOn
                     ? "border-sky-700 checked:bg-sky-500"
@@ -98,7 +98,7 @@ const MCQs = ({
           placeholder="Why do you think so?"
           value={nselectedAnswer}
           {...register(regQuestion)}
-          onChange={(e) => handleChange(e, "", false)}
+          onChange={(e) => handleChange(e, "", false, question)}
           disabled={radioOn}
         />
       ) : (
