@@ -33,6 +33,7 @@ import {
   AnswerForQuestion7Part2
 } from "./QuestionBank";
 import { getEmotionValue } from "../../../emotions";
+import { useEffect } from "react";
 
 const FirstPage = ({ formData, setFormData }) => {
   const { register } = useForm();
@@ -57,6 +58,11 @@ const FirstPage = ({ formData, setFormData }) => {
       [name]: value,
     }));
   };
+
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>
