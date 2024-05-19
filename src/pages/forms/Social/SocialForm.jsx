@@ -10,18 +10,45 @@ import HeaderImg from "../../../assets/images/Social/SOCIAL.png";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import { useNavigate } from "react-router-dom";
+import AdviceModal from "../../../components/AdviceModel";
 
 export default function SocialForm() {
   const [formData, setFormData] = useState({});
   const [showForm, setShowForm] = useState("form1");
   const [showModal, setShowModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [adviceData, setAdviceData] = useState([]);
   const navigate = useNavigate();
-
-  const HandleSubmit = () => {
+ 
+  const handleSubmit = () => {
     setShowForm("submit");
-    console.log("hello", formData);
+    console.log("hello social", (formData));
+    getAdvice(Object.values(formData)).then(data => {
+      setAdviceData(data.advice)
+    }).catch((err)=>{console.error(err)})
   };
-
+ 
+  const getAdvice = (form_data) => {
+    let myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+ 
+    let raw = JSON.stringify({
+      "sentence": form_data,
+      type:"social_form" // <=======  INURI THIS IS THE FORM IDENTIFIER. FOR DIFFERENT DEFERENT FORMS SEND UNIQUE VALUES 
+    });
+ 
+    let requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+ 
+    return fetch("http://127.0.0.1:5000/predict", requestOptions)
+      .then((response) => response.json())
+  }
+ 
+ 
   const handleNext = () => {
     // Check if there are no null values
     if (
@@ -29,22 +56,36 @@ export default function SocialForm() {
       !formData.question2 ||
       !formData.question3 ||
       !formData.question4 ||
-      !formData.question5
+      !formData.question5 ||
+      !formData.question6 ||
+      !formData.question7 
     ) {
       setShowModal(true);
       return;
     }
     setShowForm("form2");
   };
-
+ 
+  const handleForm2 = () => {
+    // Check if there are no null values
+    if (
+      !formData.question8 ||
+      !formData.question9
+    ) {
+      setShowModal(true);
+      return;
+    }
+    handleSubmit()
+  };
+ 
   const handleCloseModal = () => {
     setShowModal(false);
   };
-
+ 
   return (
     <div
       className="bg-cover bg-center bg-fixed"
-      // style={{ backgroundImage: `url(${BGImage})` }}
+    // style={{ backgroundImage: `url(${BGImage})` }}
     >
       <div className="flex justify-center ">
         <div
@@ -76,13 +117,17 @@ export default function SocialForm() {
               Go Back
             </AwesomeButton>
           </div>
-
+          <AdviceModal
+            isOpen={isOpen}
+            adviceData={adviceData}    
+            onClose={() => { setIsOpen(false) }}
+          />
           <div className="flex justify-center items-center h-full">
             <span className="text-8xl">Social</span>
           </div>
         </div>
       </div>
-
+ 
       <div className="flex bg-sky-100 justify-center items-center ">
         {showForm == "form1" && (
           <div className="w-12/12 px-20 pt-20 pb-12 relative rounded-b-3xl">
@@ -95,7 +140,7 @@ export default function SocialForm() {
           </div>
         )}
       </div>
-
+ 
       <div className="flex justify-center bg-sky-100 items-center  pb-10 ">
         <div className="w-full mr-10 flex justify-end items-center">
           {showForm == "form1" && (
@@ -119,7 +164,7 @@ export default function SocialForm() {
                 borderColor: "black",
               }}
             >
-              Next form
+              Next page
             </AwesomeButton>
           )}
           {showForm == "form2" && (
@@ -150,7 +195,7 @@ export default function SocialForm() {
             <AwesomeButton
               type="primary"
               onReleased={() => {
-                HandleSubmit();
+                handleForm2();
               }}
               style={{
                 "--button-primary-color": "#deac21",
@@ -173,13 +218,13 @@ export default function SocialForm() {
         </div>
       </div>
       {showForm == "submit" && <div className=""></div>}
-
+ 
       <Modal
         isOpen={showModal}
         message="Hey you need to fill everything to go to the next part :) "
         onClose={handleCloseModal}
       />
-      {showForm == "submit" && <SuccessModal quiz={"Quiz 03"} />}
+      {showForm == "submit" && <SuccessModal onNext={setIsOpen} setShowForm={setShowForm} quiz={"Quiz 01"} />}
     </div>
   );
 }

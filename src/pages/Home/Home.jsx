@@ -14,7 +14,7 @@ function HomePage() {
         <div className="w-1/2 flex flex-col items-center justify-center ">
           <div className=" w-2/3">
             <h1 className="font-short-stack text-3xl">{homeContent.title}</h1>
-            <p className="font-delius text-2xl">{homeContent.aboutUs}</p>
+            <p className="font-delius text-2xl text-justify flex">{homeContent.aboutUs}</p>
           </div>
           <div className="flex mt-8 w-2/3">
             <div className="mr-2">

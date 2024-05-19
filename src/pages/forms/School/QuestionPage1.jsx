@@ -1,14 +1,8 @@
+
 import React from "react";
 import { useForm } from "react-hook-form";
 import QuestionImageCard from "../QuestionCards/QuestionImageCard";
 import { useState } from "react";
-import Q1Image1 from "../../../assets/images/Family/Q1/1.png";
-import Image from "../../../assets/images/selectionPage/aaa.png";
-import HappyImg from "../../../assets/images/Family/Q1/happy family.png"
-import SadImg from "../../../assets/images/Family/Q1/sad family.png"
-import FrightenedImg from "../../../assets/images/Family/Q1/frightened.png"
-import supportiveImg from "../../../assets/images/Family/Q1/supportive family.png"
-import unlovedImg from "../../../assets/images/Family/Q1/unloved and not cared.png"
 import MCQs from "../QuestionCards/MCQs";
 import {
   Question1,
@@ -37,7 +31,8 @@ import {
   AnswerForQuestion7,
   Question7Part2,
   AnswerForQuestion7Part2
-} from "./QnASchool";
+} from "./QuestionBankSchool";
+import { getEmotionValue } from "../../../emotions";
 
 const FirstPage = ({ formData, setFormData }) => {
   const { register } = useForm();
@@ -45,15 +40,13 @@ const FirstPage = ({ formData, setFormData }) => {
   const color = "bg-white";
   const borderColor = "border-inherit";
 
-
-
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const handleAnswerSelect = (questionIndex, answerText) => {
+  const handleAnswerSelect = (questionIndex, answerText, Question1) => {
     setSelectedAnswer(answerText);
     const questionKey = `question${questionIndex}`;
     setFormData((prevData) => ({
       ...prevData,
-      [questionKey]: answerText,
+      [questionKey]: [Question1, answerText, getEmotionValue(answerText)],
     }));
   };
 
@@ -74,7 +67,7 @@ const FirstPage = ({ formData, setFormData }) => {
             question={Question1}
             answers={AnswerForQuestion1}
             selectedAnswer={selectedAnswer}
-            onAnswerSelect={(answerText) => handleAnswerSelect("1", answerText)}
+            onAnswerSelect={(answerText) => handleAnswerSelect("1", answerText, Question1)}
             setFormData={setFormData}
             color={"bg-white py-12 font-short-stack"}
             borderColor={borderColor}
@@ -88,15 +81,10 @@ const FirstPage = ({ formData, setFormData }) => {
           <div className="mb-4">
             <div className="flex flex-col ">
               <MCQs answers={AnswerForQuestion2} question={Question2}  nselectedAnswer={formData.question2} regQuestion={"question2"} setFormData={setFormData} />
-              
             </div>
           </div>
-          {/* {console.log("test1", formData.question2)}
-          {console.log("test2", AnswerForQuestion2[1].emotion)} */}
           {formData.question2 == AnswerForQuestion2[1].emotion && (
             <div className="mt-6">
-             
-
               <MCQs answers={AnswerForQuestion2}  nselectedAnswer={formData.question2Part2} question={Question2Part2} regQuestion={"question2Part2"} setFormData={setFormData} />
             </div>
           )}
@@ -107,12 +95,8 @@ const FirstPage = ({ formData, setFormData }) => {
           className={` bg-white font-short-stack py-10 p-6 rounded-3xl shadow-md mb-12  ${borderColor}`}
         >
           <div className="mb-4">
-            {/* <label className="block text-xl font-semibold mb-6">
-              {Question3}
-            </label> */}
             <div className="flex flex-col ">
               <MCQs answers={AnswerForQuestion3} question={Question3} regQuestion={"question3"} setFormData={setFormData} />
-              
             </div>
           </div>
           {formData.question3 == AnswerForQuestion3[4].emotion && (
@@ -134,7 +118,62 @@ const FirstPage = ({ formData, setFormData }) => {
             <div className="flex flex-col ">
               <MCQs answers={AnswerForQuestion4} question={Question4} regQuestion={"question4"} setFormData={setFormData} />
 
+              {/* <label className="flex items-center mb-2">
+                <input
+                  type="radio"
+                  name="favoriteSibling"
+                  value={question4Answer1}
+                  {...register("question4")}
+                  onChange={handleChange}
+                  className="appearance-none h-8 w-8 border border-sky-700 rounded-full checked:bg-sky-500 checked:border-transparent focus:outline-none"
+                />
+                <span className="ml-2 text-xl">Talk to my family about it</span>
+              </label>
             
+              <label className="flex items-center mb-2">
+                <input
+                  type="radio"
+                  name="favoriteSibling"
+                  value={question4Answer2}
+                  {...register("question4")}
+                  onChange={handleChange}
+                  className="appearance-none h-8 w-8 border border-gray-700 rounded-full checked:bg-sky-500 checked:border-transparent focus:outline-none"
+                />
+                <span className="ml-2 text-xl">Feel sad or upset</span>
+              </label>
+              <label className="flex items-center mb-2">
+                <input
+                  type="radio"
+                  name="favoriteSibling"
+                  value={question4Answer3}
+                  {...register("question4")}
+                  onChange={handleChange}
+                  className="appearance-none h-8 w-8 border border-gray-700 rounded-full checked:bg-sky-500 checked:border-transparent focus:outline-none"
+                />
+                <span className="ml-2 text-xl">Seek comfort from my family</span>
+              </label>
+              <label className="flex items-center mb-2">
+                <input
+                  type="radio"
+                  name="favoriteSibling"
+                  value={question4Answer4}
+                  {...register("question4")}
+                  onChange={handleChange}
+                  className="appearance-none h-8 w-8 border border-sky-700 rounded-full checked:bg-sky-500 checked:border-transparent focus:outline-none"
+                />
+                <span className="ml-2 text-xl">Keep my feelings to myself</span>
+              </label>
+              <label className="flex items-center mb-2">
+                <input
+                  type="radio"
+                  name="favoriteSibling"
+                  value={question4Answer5}
+                  {...register("question4")}
+                  onChange={handleChange}
+                  className="appearance-none h-8 w-8 border border-sky-700 rounded-full checked:bg-sky-500 checked:border-transparent focus:outline-none"
+                />
+                <span className="ml-2 text-xl">Feel frightened or anxious</span>
+              </label> */}
             </div>
           </div>
           {formData.question4 == AnswerForQuestion4[4].emotion && (
@@ -156,10 +195,46 @@ const FirstPage = ({ formData, setFormData }) => {
             <div className="flex items-center space-x-8">
               <MCQs answers={AnswerForQuestion5} question={Question5} regQuestion={"question5"} setFormData={setFormData} />
 
-             
+              {/* <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="favoriteSibling"
+                  value={question5Answer1}
+                  {...register("question5")}
+                  onChange={handleChange}
+                  className="appearance-none h-8 w-8 border border-sky-700 rounded-full checked:bg-sky-500 checked:border-transparent focus:outline-none"
+                />
+                <span className="ml-2 text-xl">Yes</span>
+              </label>
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="favoriteSibling"
+                  value={question5Answer2}
+                  {...register("question5")}
+                  onChange={handleChange}
+                  className="appearance-none h-8 w-8 border border-gray-700 rounded-full checked:bg-sky-500 checked:border-transparent focus:outline-none"
+                />
+                <span className="ml-2 text-xl">No</span>
+              </label> */}
             </div>
           </div>
-          
+          {/* </div> */}
+          {/* {formData.question5 == question5Answer1 && (
+            <div>
+              <label className="block text-xl ml-10 font-semibold mb-2">
+                {question5Part2}
+              </label>
+              <input
+                type="text"
+                className="w-full px-3  py-2 border rounded-md focus:outline-none focus:border-blue-400"
+                placeholder="Why do you think so?"
+                value={formData.question5Part2 || ""}
+                {...register("question5Part2")}
+                onChange={handleChange}
+              />
+            </div>
+          )}  */}
           {/* {console.log("test1", formData.Question5)}
           {console.log("test2", AnswerForQuestion5[4].emotion)} */}
           {formData.question5 == AnswerForQuestion5[4].emotion && (

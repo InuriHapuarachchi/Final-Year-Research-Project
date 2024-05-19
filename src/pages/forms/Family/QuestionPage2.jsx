@@ -11,6 +11,7 @@ import {
   Question9Part2,
   AnswerForQuestion9Part2
 }  from "./QuestionBank";
+import { useEffect } from "react";
  
 const SecondPage = ({ formData, setFormData }) => {
   const { register } = useForm();
@@ -25,6 +26,10 @@ const SecondPage = ({ formData, setFormData }) => {
       [name]: value,
     }));
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
  
   return (
     <div>
