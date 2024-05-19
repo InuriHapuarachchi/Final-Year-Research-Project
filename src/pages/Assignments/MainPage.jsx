@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import TopBar from "../Home/TopBar";
 import ReportTable from "./ReportTable";
+import LoginPage from "../login/login";
 
-const sidebarNames = ["Subject Reports", "Emotion Reports", "Profiles", "Contact"]; // Define sidebar names here
+const sidebarNames = ["Subject Reports", "Emotion Reports", "Profiles", "Contact", "login"]; // Define sidebar names here
 
 function MainAssignment() {
   const [selectedName, setSelectedName] = useState(sidebarNames[0]); // State to keep track of selected sidebar name
@@ -34,6 +35,7 @@ function MainAssignment() {
          
          {selectedName == "Home" && "home"}
          {selectedName == "Emotion Reports" && <ReportTable />}
+         {selectedName == "login" && <LoginPage />}
           
         </div>
       </div>

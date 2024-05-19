@@ -8,6 +8,7 @@ import SchoolForm from "../pages/forms/School/SchoolForm";
 import SocialForm from "../pages/forms/Social/SocialForm";
 // import { Reports } from "../pages/Reports";
 import Reports from "../pages/Reports";
+import LoginPage from "../pages/login/login";
 
 export default function MainRoutes() {
   return (
@@ -19,6 +20,7 @@ export default function MainRoutes() {
         <Route path="/SocialQuiz" element={<SocialForm /> }/>
         <Route path="/" element={<HomePage /> }/>
         <Route path="/Reports" element={<Reports /> }/>
+        <Route path="/login" element={<LoginPage /> }/>
       </Routes>
     </BrowserRouter>
   );
