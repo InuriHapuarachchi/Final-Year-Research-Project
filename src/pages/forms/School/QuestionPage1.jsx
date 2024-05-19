@@ -86,7 +86,7 @@ const FirstPage = ({ formData, setFormData }) => {
         >
           <div className="mb-4">
             <div className="flex flex-col ">
-              <MCQs answers={AnswerForQuestion2} question={Question2}  nselectedAnswer={formData.question2} regQuestion={"question2"} setFormData={setFormData} />
+              <MCQs answers={AnswerForQuestion2} question={Question2}   regQuestion={"question2"} setFormData={setFormData} />
             </div>
           </div>
           {formData.question2 == AnswerForQuestion2[1].emotion && (

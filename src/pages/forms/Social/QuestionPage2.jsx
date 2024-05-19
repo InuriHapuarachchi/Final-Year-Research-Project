@@ -11,7 +11,8 @@ import {
   Question9Part2,
   AnswerForQuestion9Part2
 }  from "./QuestionBankSocial";
-import { useState } from "react";
+import { useEffect } from "react";
+// import { useState } from "react";
  
 const SecondPage = ({ formData, setFormData }) => {
   const { register } = useForm();

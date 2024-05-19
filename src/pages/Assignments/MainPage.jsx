@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import TopBar from "../Home/TopBar";
 import ReportTable from "./ReportTable";
+import EmoReports from "./EmoReports";
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const sidebarNames = ["Subject Reports", "Emotion Reports", "Profiles", "Contact"]; // Define sidebar names here
 
@@ -33,7 +35,8 @@ function MainAssignment() {
         <div>
          
          {selectedName == "Home" && "home"}
-         {selectedName == "Emotion Reports" && <ReportTable />}
+         {selectedName == "Emotion Reports" && <EmoReports />}
+         {selectedName == "Profiles" && <ReportTable />}
           
         </div>
       </div>
