@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TopBar from "../Home/TopBar";
 import ReportTable from "./ReportTable";
 
-const sidebarNames = ["Home", "Reports", "Services", "Contact"]; // Define sidebar names here
+const sidebarNames = ["Subject Reports", "Emotion Reports", "Profiles", "Contact"]; // Define sidebar names here
 
 function MainAssignment() {
   const [selectedName, setSelectedName] = useState(sidebarNames[0]); // State to keep track of selected sidebar name
@@ -33,7 +33,7 @@ function MainAssignment() {
         <div>
          
          {selectedName == "Home" && "home"}
-         {selectedName == "Reports" && <ReportTable />}
+         {selectedName == "Emotion Reports" && <ReportTable />}
           
         </div>
       </div>

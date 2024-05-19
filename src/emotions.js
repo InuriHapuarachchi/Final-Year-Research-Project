@@ -1,9 +1,9 @@
 const emotions = {
   happy: 1,
-  sad: 2,
+  sad: 0,
   unloved: 3,
   frightened: 4,
-  loved: 1,
+  loved: 2,
 };
 
 const getEmotionValue = (emo) => {

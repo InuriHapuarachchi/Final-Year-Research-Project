@@ -26,10 +26,10 @@ const MCQs = ({
         [name]: null,
       }));
     }
-    console.log(getEmotionValue, "=pp========")
+    // console.log(getEmotionValue, "=pp========")
     setFormData((prevData) => ({
       ...prevData,
-      [name]: from_radio ? [question, ans, getEmotionValue(value)] : value,
+      [name]: from_radio ? [question, ans, getEmotionValue(value)] : [question, value],
     }));
   };
 
