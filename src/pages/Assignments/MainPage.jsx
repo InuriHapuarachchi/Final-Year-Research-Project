@@ -3,8 +3,9 @@ import TopBar from "../Home/TopBar";
 import ReportTable from "./ReportTable";
 import EmoReports from "./EmoReports";
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import LoginPage from "../login/login";
 
-const sidebarNames = ["Subject Reports", "Emotion Reports", "Profiles", "Contact"]; // Define sidebar names here
+const sidebarNames = ["Subject Reports", "Emotion Reports", "Profiles", "Contact", "login"]; // Define sidebar names here
 
 function MainAssignment() {
   const [selectedName, setSelectedName] = useState(sidebarNames[0]); // State to keep track of selected sidebar name
@@ -37,6 +38,8 @@ function MainAssignment() {
          {selectedName == "Home" && "home"}
          {selectedName == "Emotion Reports" && <EmoReports />}
          {selectedName == "Profiles" && <ReportTable />}
+         {/* {selectedName == "Emotion Reports" && <ReportTable />} */}
+         {selectedName == "login" && <LoginPage />}
           
         </div>
       </div>
